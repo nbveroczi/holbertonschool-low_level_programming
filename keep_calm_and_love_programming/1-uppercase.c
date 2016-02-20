@@ -1,3 +1,4 @@
+#include "my_functions.h"
 /* This function converts a letter to upper case,
    if it is possible.
 */

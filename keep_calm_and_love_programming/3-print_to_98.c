@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "my_functions.h"
 /* This function takes an integer as argument, and prints -
    one one line - all numbers from it's value to 98, followed
    by a new line 
@@ -26,6 +26,3 @@ void print_to_98(int n)
     }
   printf("%d\n", i);
 }    
-
-
-

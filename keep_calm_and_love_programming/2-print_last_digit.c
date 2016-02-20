@@ -1,4 +1,5 @@
 #include "print_char.h"
+#include "my_functions.h"
 /* This is a function that prints the last digit
    of an integer.
 */
