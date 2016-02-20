@@ -1,5 +1,7 @@
 #include "print_char.h"
-
+/* This is a function that prints the last digit
+   of an integer.
+*/
 void print_last_digit(int n)
 {
   char c; 
