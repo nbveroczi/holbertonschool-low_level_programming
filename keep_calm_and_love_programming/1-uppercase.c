@@ -1,3 +1,6 @@
+/* This function converts a letter to upper case,
+   if it is possible.
+*/
 char uppercase(char c)
 {
   char result;
