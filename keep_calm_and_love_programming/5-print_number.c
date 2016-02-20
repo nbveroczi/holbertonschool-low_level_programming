@@ -32,9 +32,9 @@ int powerOfTen(int exponent)
 void print_number(int n)
 {
   int digit, numDigits, divisor, remainder;
-
+  remainder = n;
   if (n < 0) {
-    n = -n;
+    remainder = -n;
     print_char('-');
   }
   else if (n == 0) {
@@ -42,10 +42,9 @@ void print_number(int n)
     return;
   }
 
-  numDigits = countNumDigits(n);
+  numDigits = countNumDigits(remainder);
   divisor = powerOfTen(numDigits - 1);
-  remainder = n;
-
+ 
   for (;numDigits > 0; numDigits--) {
     digit = remainder / divisor;
     print_char('0' + digit);
