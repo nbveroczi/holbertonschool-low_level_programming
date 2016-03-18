@@ -1,3 +1,5 @@
+#include <stdio.h>
+char *nconcat_strings(char *dest, const char *src, int n);
 int main(void)
 {
   char s1[98] = "Hello ";

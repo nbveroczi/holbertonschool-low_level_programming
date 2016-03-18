@@ -1,0 +1,16 @@
+#include "0-noncat_strings.h"
+
+/* This is a function that concatenates two strings. */
+char *concat_strings(char *dest, const char *src)
+
+char *
+  strcat(dest, src)
+     char *s;
+     const char *src;
+{
+  char *save = s;
+
+  for (; *dest; ++dest);
+  while (*dest++ = *src++);
+  return(save);
+}
