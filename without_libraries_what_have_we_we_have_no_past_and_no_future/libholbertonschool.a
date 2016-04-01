@@ -1,0 +1,471 @@
+#include "libholbertonschool.h
+
+/* This is a function that takes an integer as argument and prints P if the number
+   is positive, N if the number is negative, and Z if the number is zero */
+
+void positive_or_not(int n)
+{
+
+  if (n == 0)
+    {
+      print_char('Z');
+    }
+  else if (n < 0)
+    {
+      print_char('N');
+    }
+  else
+    {
+      print_char('P');
+    }
+}
+
+/* FIX PROBLEM WITH MAX INT - long int?
+   This function takes an integer in parameter and prints it */
+
+/* Counts number of digits in n */
+
+int countNumDigits(int n)
+{
+  int numDigits, remainingDigits;
+
+  remainingDigits = n;
+
+  for (numDigits = 0; remainingDigits > 0; numDigits++)
+    {
+      remainingDigits = remainingDigits / 10;
+    }
+  return numDigits;
+}
+
+/* This function calculates a power of ten given an exponent */
+
+int powerOfTen(int exponent)
+{
+  int result, i;
+
+  result = 1;
+
+  for (i = 0; i < exponent; i++)
+    {
+      result = result * 10;
+    }
+  return result;
+}
+
+/* This function prints a number in decimal format */
+
+void print_number(int n)
+{
+  int digit, numDigits, divisor, remainder;
+
+  if (n < 0) {
+    n = n * -1;
+    print_char('-');
+  }
+  else if (n == 0) {
+    print_char('0');
+    return;
+  }
+
+  numDigits = countNumDigits(n);
+  divisor = powerOfTen(numDigits - 1);
+  remainder = n;
+
+  for (;numDigits > 0; numDigits--) {
+      digit = remainder / divisor;
+      print_char('0' + digit);
+      remainder -= (digit * divisor);
+      divisor = divisor / 10;
+  }
+}
+
+/* This function returns the absolute value
+   of an integer. */
+
+int absolute(int n) 
+{
+  if (n < 0) 
+  {
+    return (n = -n);
+  }
+  return n;  
+}
+
+/* This function converts a letter to upper case,
+   if it is possible. */
+
+char uppercase(char c)
+{
+  char result;
+
+  if ((c >= 'a') && (c <= 'z'))
+    {
+      result = c - ('a' - 'A');
+    } 
+  else 
+    {
+      result = c;
+    }
+  return result;
+}
+
+/* This is a function that convers a letter to 
+   lower case, if possible. */
+
+char lowercase(char c)
+{
+  char result;
+
+  if ((c >= 'A') && (c <= 'Z'))
+    {
+      result = c - ('A' - 'a');
+    }
+  else
+    {
+      result = c;
+    }
+  return result;
+}
+
+/* This is a function that returns the first 
+   digit of a number. */
+
+int first_digit(int n)
+{
+  unsigned int remainder; 
+ 
+ if (n < 0)
+    {
+      remainder = -n;
+    }
+ else 
+   {
+     remainder = n;
+   }
+
+  while (remainder > 9)
+    {
+      remainder = remainder / 10; 
+    }
+  return(remainder);
+}
+
+/* DOUBLE CHECK THIS IS CORRECT COULDN'T FIND POINTERS ARE FUN
+   This function swaps the values of two integers. */
+
+void swap_int(int *a, int *b)
+{
+  if (*a && *b)
+    {
+      int s;
+      s = *a;
+      *a = *b;
+      *b = s;
+    }
+}
+
+/* DOUBLE CHECK THIS IS CORRECT COULDN'T FIND POINTERS ARE FUN
+   This is a function that returns the length of a string. */
+
+int str_len(char *str)
+{
+  int len;
+  len = 0;
+
+  while (str[len] != '\0')
+    {
+      len++;
+    }
+  return len;
+}
+
+/* DOUBLE CHECK THIS IS CORRECT COULDN'T FIND POINTERS ARE FUN
+   This is a function that prints a string. */
+
+void print_string(char *str)
+{
+
+  int i;
+  i = 0;
+
+  while (str[i] != '\0')
+    {
+      print_char(str[i++]); 
+    }
+}
+
+/* DOUBLE CHECK THIS IS CORRECT COULDN'T FIND POINTERS ARE FUN
+   This is a function that reverses a string. */
+
+void reverse_string(char *s)
+{
+  /* find the length of the string */
+  int len;
+  len = 0;
+
+  while (s[len] != '\0')
+    {
+      (s[len++]);
+    }
+  return;
+  char str;
+  int store;
+  int i;
+
+  for (i = 0; i < (len/2); i++)
+    {
+      store = str[i];
+      str[i] = str[((len-1) - i)];
+      str[((len-1) - i)] = store;
+    }
+}
+
+/* FIND PROPER PROBLEM AND SOLVE */
+
+int string_to_integer(char *s)
+{
+
+
+
+}
+
+/* ARRAYS ARE NOT POINTERS */
+
+void print_array(int *a, int n)
+{
+
+
+
+}
+
+/* REVIEW AND REVISE Chemistry is the melodies you can play on vibrating strings
+   This is a function that concatenates two strings */
+
+char *concat_strings(char *dest, const char *src)
+{
+  int i, j;
+
+  for (i = 0; dest[i] != '\0'; i++);
+
+  for (j = 0; src[j] != '\0'; j++, i++) 
+    {
+    dest[i] = src[j];
+    }
+  dest[i] = '\0';
+  return (dest);
+}
+
+/* REVIEW AND REVISE Chemistry is the melodies you can play on vibrating strings
+   This is a function that concatenates two strings. */
+
+char *nconcat_strings(char *dest, const char *src, int n)
+{
+  int i, j;
+ 
+  for (i = 0; dest[i] != '\0'; i++);
+ 
+  for (j = 0 ; j < n && src[j] != '\0' ; j++, i++) 
+    {
+      dest[i] = src[j];
+    }
+  dest[i] = '\0';
+  return dest;
+}
+
+/* REVIEW AND REVISE Chemistry is the melodies you can play on vibrating strings 
+   This is a function that copies a string */
+
+char *string_copy(char *dest, const char *src)
+{
+  int index;
+
+  for (index = 0; src[index] != '\0'; index++)
+    {
+      dest[index] = src[index];
+    }
+  for (; index < src[index]; index++)
+    {
+      dest[index] = '\0';
+    }
+  return dest;
+}
+
+/* REVIEW AND REVISE Chemistry is the melodies you can play on vibrating strings 
+   This is a function that copies a string */
+
+char *string_ncopy(char *dest, const char *src, int n)
+{
+  int index;
+
+  for (index = 0; index < n && src[index] != '\0'; index++) 
+    {
+      dest[index] = src[index];
+    }
+  
+  for (; index < n; index++) 
+    {
+      dest[index] = '\0';
+    }
+return dest;
+}
+
+/* REVIEW AND REVISE Chemistry is the melodies you can play on vibrating strings 
+   This is a function that compares two strings */
+
+int strings_compare(char *s1, const char *s2)
+{ 
+  int index, s3 = 0;
+
+  for(index = 0; s2[index] != '\0'|| s1[index] != '\0'; index++)
+    {
+    s3 = s1[index] - s2[index];
+    if(s3 != 0)
+      {
+      break;
+      }
+    }
+  return s3;
+}
+
+/* REVIEW AND REVISE Chemistry is the melodies you can play on vibrating strings
+   This is a functiion that reverses the content of an array of integers */
+
+void reverse_array(int *a, int n)
+{
+  int hold, i = 0, j = (n - 1);
+  while (i < j) {
+    hold = a[i];
+    a[i] = a[j];
+    a[j] = hold;
+    i++;
+    j--;
+  }
+}
+
+/* FIND PROBLEM AND SOLVE */
+
+char *uppercase_string(char *)
+{
+
+
+
+}
+
+/* FIND PROBLEM AND SOLVE */
+
+char *cap_string(char *)
+{
+
+
+
+
+}
+
+/* This is a function that returns the value of x raised to the power of y. */
+
+int power(int x, int y)
+{
+  int result;
+
+  if (y < 0)
+    {
+      result = -1;
+    }
+  else if (y == 0)
+    {
+      result = 1;
+    }
+  else
+    {
+      result = x * power(x, y - 1);
+    }
+
+  return(result);
+}
+
+/* Double check	this is	correct	with Autocorrect 
+   This is a function that returns the value of x raised to the power of y. */
+
+int power(int x, int y)
+{
+  int result;
+
+  if (y < 0)
+    {
+      result = -1;
+    }
+  else if (y == 0)
+    {
+      result = 1;
+    }
+  else
+    {
+      result = x * power(x, y - 1);
+    }
+
+  return(result);
+}
+
+/* This is a function that compares base squared and n */
+
+int square_root_recursive(int base, int n)
+{
+  int result, square;
+  square = power(base,2);
+
+  if (n < square)
+    {
+      result = -1;
+    }
+  else if (n > square)
+    {
+      result = square_root_recursive(++base, n);
+    }
+  else
+    {
+      result = base;
+    }
+  return result;
+}
+
+/* This is a function that returns the natural square root of a number. */
+
+int square_root(int n)
+{
+  int base;
+  base = 1;
+  return square_root_recursive(base, n);
+}
+
+
+
+/* Double check this is correct with Autocorrect
+   This is a function that checks to see if a number is a prime number */
+
+int is_prime_number_recursive(int num,int divisor)
+{
+  int result;
+  result = 0;
+
+  if (num >= 2)
+    {
+      if (divisor == 1)
+        {
+          result = 1;
+        }
+      else if (num % divisor != 0)
+        {
+          result = is_prime_number_recursive(num, divisor - 1);
+        }
+    }
+
+  return result;
+}
+
+/* This is a function that returns 1 if a number is a prime number, 0 otherwise. */
+
+int is_prime_number(int n)
+{
+  return is_prime_number_recursive(n, n/2);
+}
