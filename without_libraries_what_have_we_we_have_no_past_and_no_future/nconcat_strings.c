@@ -1,18 +1,17 @@
-#include "nconcat_strings.h"
+#include "print_char.h"
+#include "str_len.h"
+/* This is a function that concatenates two strings */
 
-/* This is a function that concatenates two strings. */
-char *concat_strings(char *dest, const char *src)
+char *nconcat_strings(char *dest, const char *src, int n)
+{
+  int destLength = str_len(dest);
+  int i;
 
-  int i=0, j;
-while(dest[i]!= '\0'){
-  i++;
- }
+  for (i = 0; i < n && src[i] != '\0'; i++)
+    {
+      dest[destLength + i] = src[i];
+    }
+  dest[destLength + i] = '\0';
 
-for (j=0; src[j]!= '\0';i++, j++){
-
-  dest[i] = src[j];
- }
-
-/* dest[i] = '\0';*/
-return dest;
+  return dest;
 }

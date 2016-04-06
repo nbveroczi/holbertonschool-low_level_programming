@@ -1,5 +1,6 @@
 #include "powerOfTen.h"
 /* This function calculates a power of ten given an exponent */
+
 int powerOfTen(int exponent)
 {
   int result, i;
@@ -12,4 +13,3 @@ int powerOfTen(int exponent)
     }
   return result;
 }
-
