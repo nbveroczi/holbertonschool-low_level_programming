@@ -1,4 +1,5 @@
 #include "print_string.h"
+#include "print_char.h"
 /* This is a function that prints a string. */
 
 void print_string(char *str)

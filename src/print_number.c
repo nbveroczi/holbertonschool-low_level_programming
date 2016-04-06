@@ -1,8 +1,9 @@
 #include "countNumDigits.h"
-#include "powerOfTen,h"
+#include "powerOfTen.h"
 #include "print_number.h"
-
+#include "print_char.h"
 /* This function prints a number in decimal format */
+
 void print_number(int n)
 {
     int digit, numDigits, divisor, remainder;

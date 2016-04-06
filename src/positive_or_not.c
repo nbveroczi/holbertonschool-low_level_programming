@@ -1,6 +1,5 @@
 #include "positive_or_not.h"
-
-/* This is a file with printing functions that utilizes if else statements */
+#include "print_char.h"
 
 /* This is a function that takes an integer as argument and prints P if the number
    is positive, N if the number is negative, and Z if the number is zero */

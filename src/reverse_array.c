@@ -1,17 +1,16 @@
 #include "reverse_array.h"
-
+#include "print_char.h"
 /* this is a function that reverses the content of an array of integers */
+
 void reverse_array(int *a, int n)
 {
-  int i;
+  int index;
+  int hold;
 
-  for (i = 0; src[i] != '\0'; i++)
+  for (index = 0; index < n / 2; index++)
     {
-      dest[i] = src[i];
+      hold = a[index];
+      a[index] = a[n - index - 1];
+      a[n - index - 1] = hold;
     }
-  for ( ; i < src[i]; i++)
-    {
-      dest[i] = '\0';
-    }
-  return dest;
 }
