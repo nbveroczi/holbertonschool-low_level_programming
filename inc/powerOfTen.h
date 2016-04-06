@@ -1,0 +1,1 @@
+int powerOfTen(int exponent);
