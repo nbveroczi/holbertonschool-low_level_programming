@@ -41,6 +41,6 @@ vpath %.h $(INCLUDE_DIRECTORIES)
 
 vpath %.c ./src
 
-clean: ; rm libholbertonschool.a $(OBJS)
+clean: ; rm $(OBJS)
 
 re: clean all
