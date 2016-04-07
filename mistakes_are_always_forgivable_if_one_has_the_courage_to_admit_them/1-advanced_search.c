@@ -7,15 +7,19 @@ int advanced_search(int *array, int size, int (*check_func)(int))
   int result;
   
   if (array)
+    {
     for (index = 0; index < size; index++)
-      if (check_func(array[index])) == (check_func(array[index]))
-	{
-	  result = 1;
-        }
-      else
-	{
-	  result = 0;
-        }
-
-  return;
+      {
+	if (check_func(array[index]))
+	  {
+	    result = index;
+	    break;
+          }
+	else
+	  {
+	    result = -1;
+	  }
+      }
+    }
+  return(result);
 }
