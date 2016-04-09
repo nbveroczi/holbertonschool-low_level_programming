@@ -1,5 +1,4 @@
 #This is a Makefile that builds my libholbertonschool.a library                                                               
-
 INCLUDE_DIRECTORIES = ./inc
 CC= gcc
 CFLAGS= -Wall -pedantic -Werror -Wextra -I$(INCLUDE_DIRECTORIES)
@@ -7,6 +6,8 @@ CFLAGS= -Wall -pedantic -Werror -Wextra -I$(INCLUDE_DIRECTORIES)
 SRCS := absolute.c concat_strings.c countNumDigits.c factorial.c is_prime_number.c is_prime_number_recursive.c lowercase.c nconcat_strings.c positive_or_not.c power.c powerOfTen.c print_char.c print_number.c print_string.c reverse_array.c reverse_string.c square_root.c square_root_recursive.c string_copy.c string_ncopy.c strings_compare.c str_len.c swap_int.c uppercase.c
 
 OBJS := $(SRCS:.c=.o)
+
+VPATH = src inc 
 
 .PHONY: all
 
@@ -37,10 +38,10 @@ strings_compare.o: strings_compare.h
 swap_int.o: swap_int.h 
 uppercase.o: uppercase.h
 
-vpath %.h $(INCLUDE_DIRECTORIES)
+#vpath %.h $(INCLUDE_DIRECTORIES)
 
-vpath %.c ./src
+#vpath %.c ./src
 
-clean: ; rm $(OBJS)
+clean: ; rm -f $(OBJS)
 
 re: clean all
