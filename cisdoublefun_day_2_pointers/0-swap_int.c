@@ -1,4 +1,3 @@
-#include "print_char.h"
 /* Swap Integers
 This is a function that swaps the values of two integers
 return integers swapped
