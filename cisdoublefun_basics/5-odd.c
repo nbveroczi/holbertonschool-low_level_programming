@@ -6,16 +6,11 @@ return is 0 or E
 
 char odd(int n)
 {
+  if ((n & 1)  ==1)
+    {
+      return ‘0’;
+    }
+  return ‘E’;
 
-  if (n % 2 == 0)
-  {
-    print_char('E');
-  }
-  
-  else 
-  {
-    print_char('0');
-  }
- 
-  return 0;
 }
+
