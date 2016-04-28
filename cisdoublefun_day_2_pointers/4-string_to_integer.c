@@ -8,18 +8,28 @@ int string_to_integer(char *s)
 {
  
   bool firstDigit;
+  bool isPositive;
   int i;
   int long n;
   i = 0;
   n = 0;
   firstDigit = false;
+  isPositive = true;
 
   while (s[i] != '\0')
   {
     if ((s[i] >= '0') && ( s[i] <= '9'))
     {
+      if (firstDigit == false)
+	{
+	  firstDigit = true;
+	  if ((i > 0) && (s[i-1] == '-'))
+	    {
+	      isPositive = false;
+	    }
+        }
       n = n * 10;
-      if (n > 0)
+      if (isPositive)
       {
         n += (*(s+i) - '0');
       }
@@ -31,15 +41,6 @@ int string_to_integer(char *s)
       {
 	return(0);
       }
-      if (firstDigit == false)
-      {
-	firstDigit = true;
-	if ((i > 0) && (s[i-1] == '-'))
-	{
-	  n = n * -1;
-	}
-      }
-      
     }
     else
     {
