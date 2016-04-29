@@ -6,9 +6,7 @@ This is a function that returns the first number contained in a string
 
 int string_to_integer(char *s)
 {
- 
-  bool firstDigit;
-  bool isPositive;
+  bool firstDigit, isPositive;
   int i;
   int long n;
   i = 0;

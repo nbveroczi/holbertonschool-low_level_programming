@@ -10,7 +10,7 @@ char *rev_string(char *str)
   len = str_len(str) -1;
   i = 0;
   
-  while (i < len/2)
+  while (i < len)
   {
     temp = str[i];
     str[i] = str[len];
