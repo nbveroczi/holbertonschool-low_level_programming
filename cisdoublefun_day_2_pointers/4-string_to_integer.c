@@ -1,54 +1,47 @@
-#include <stdbool.h>
+#include<stdio.h>
 #include <limits.h>
-/* First Number in String
-This is a function that returns the first number contained in a string
-*/
-
 int string_to_integer(char *s)
 {
-  bool firstDigit, isPositive;
   int i;
-  int long n;
+  int sign;
+  int new_digit;
+  long int number;
   i = 0;
-  n = 0;
-  firstDigit = false;
-  isPositive = true;
+  sign = 1;
+  number = 0;
 
-  while (s[i] != '\0')
+  while ((s[i] != '\0') && (s[i] < '0' || s[i] > '9'))
   {
-    if ((s[i] >= '0') && ( s[i] <= '9'))
+    printf("%c", s[i]);
+    if (s[i] == '-')
     {
-      if (firstDigit == false)
-	{
-	  firstDigit = true;
-	  if ((i > 0) && (s[i-1] == '-'))
-	    {
-	      isPositive = false;
-	    }
-        }
-      n = n * 10;
-      if (isPositive)
-      {
-        n += (*(s+i) - '0');
-      }
-      else 
-      {
-	n -= (*(s+i) - '0');
-      }
-      if ((n > INT_MAX) || (n < INT_MIN))
-      {
-	return(0);
-      }
+      sign *= -1;
     }
-    else
-    {
-      if (firstDigit)
-      {
-        break;
-      }
-    }
-    i++; 
+
+    i++;
   }
 
-  return (n);
+  while ((s[i] != '\0') && (s[i] >= '0' && s[i] <= '9'))
+  {
+    
+    printf("%c", s[i]);
+    number *=10;
+    new_digit = s[i] - '0';
+    number += new_digit;
+    if ((sign == 1 && number  > INT_MAX) ||
+	(sign == -1 && (-1 * number < INT_MIN))
+      {                                                                                                                     
+	return(0);                                                                                                          
+      }
+
+    i++;
+  }
+  /*    if ((sign == 1 && number  > INT_MAX) ||
+	(sign == -1 && (-1 * number < INT_MIN))
+    {                                                                                                          return(0);                                                                                             } 
+      
+  }
+  */
+
+  return (sign * number);
 }
