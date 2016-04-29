@@ -1,9 +1,9 @@
 /* Factorial
-This is an iterative function that returns the factorial of a given number
+This is an ITERATIVE function that returns the factorial of a given number
 Returns -1 (indicating error) if n is < 0, returns factor of Number, returns
 -1 if result can not be stored in an int
 */
-
+#include <limits.h>
 int factorial(int n)
 {
   int result;
@@ -11,7 +11,7 @@ int factorial(int n)
   result = 1;
   i = 1;
 
-  if (n < 0)
+  if ((n < 0) || (n > INT_MAX))
   {
     return (-1);
   }
