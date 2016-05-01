@@ -14,8 +14,8 @@ char *rev_string(char *str)
   while (i < length)
   {
     temp = str[i];
-    str[i] = str_len[str];
-    str_len[str] = temp;
+    str[i] = str[length];
+    str[length] = temp;
     i++;
     length--;
   }
@@ -28,7 +28,7 @@ int str_len(char *s)
   int length;
   length = 0;
 
-  while (s[length != '\0'])
+  while (s[length] != '\0')
   {
     length++;
   }
