@@ -3,21 +3,36 @@ This is  an iterative function that returns the natural square root of a number
 Returns natural square root else return -1 */
 int square_root(int n)
 {
-  int wholeNum;
-  wholeNum = 1;
+  int base;
+  base = 1;
 
-  while (wholeNum <= n)
+  while (base * base <= n)
   {
-    if (n == wholeNum * wholeNum)
+    /* compare n against the current square */
+    if (n == base * base)
     {
-    return (wholeNum);
+      return (base);
     }
     else
     {
-    wholeNum++;
+      base++;
     }
   }
+
     return (-1);
 }
 
 /* wholeNum * wholeNum = the square root */
+
+
+/*
+n = 15
+wN = 3
+sq = 9
+
+1 1
+2 4
+3 9
+4 16
+5 25
+*/
