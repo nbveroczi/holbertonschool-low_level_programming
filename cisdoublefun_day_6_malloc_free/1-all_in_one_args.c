@@ -4,6 +4,7 @@ int str_len(char *str);
 char *string_concat(char *dest, const char *src);
 /* This is a function that concatenates all command line arguments
 Returns concatenated command line arguments */
+
 char *all_in_one_args(int ac, char **av)
 
 {
@@ -60,22 +61,6 @@ char *string_concat(char *dest, const char *src)
     indexIntoDest++;
   }
   dest[indexIntoDest] = '\0';
-
-  return dest;
-}
-
-char *string_copy(char *dest, const char *src)
-{
-  int i;
-  i = 0;
-
-  while (src[i] != '\0')
-    {
-      dest[i] = src[i];
-      i++;
-    }
-
-  dest[i] = '\0';
 
   return dest;
 }
