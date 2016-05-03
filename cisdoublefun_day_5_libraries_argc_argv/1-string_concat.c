@@ -3,24 +3,23 @@ This is a function that concatenates two strings.*/
 
 char *string_concat(char *dest, const char *src)
 {
-  int i;
-  int j;
-  i = 0;
+  int indexIntoSrc;
+  int indexIntoDest;
 
-  while(dest[i] != '\0')
+  indexIntoDest = 0;
+  while(dest[indexIntoDest] != '\0')
   {
-    i++;
+    indexIntoDest++;
   }
 
-  j = i;
-  i = 0;
-
-  while(src[i] != '\0')
+  indexIntoSrc = 0;
+  while(src[indexIntoSrc] != '\0')
   {
-    dest[j] = src[i];
-    j++;
-    i++;
+    dest[indexIntoDest] = src[indexIntoSrc];
+    indexIntoSrc++;
+    indexIntoDest++;
   }
-
+  dest[indexIntoDest] = '\0';
+  
   return dest;
 }
