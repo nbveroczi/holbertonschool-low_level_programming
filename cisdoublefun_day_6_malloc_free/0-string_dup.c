@@ -1,39 +1,45 @@
+#include <stdlib.h>
 /* This is  a function that returns a pointer to a newly allocated space in
 memory, which contains a copy of the string given as a parameter.
 */
-#include <stdio.h>
-#include <stdlib.h>
 
 int str_len(char *str);
+
 char *string_dup(char *str)
 {
-    char *d;
+    char *newString;
     int i;
     i = 0;
     int len;
-    len = 0;
+    if (str == NULL)
+    {
+      return NULL;
+    }
+
     len = str_len(str);
 
-    d = malloc(len * sizeof(char));
-    if (d == NULL)
+    newString = malloc((len + 1) * sizeof(char));
+    if (newString == NULL)
     {
       return NULL;     /* No memory */
     }
-    while (len > 0)
+    while (i < (len + 1))
     {
-    d[i] = str[i];
-    i++;
-    len--;
+      newString[i] = str[i];
+      i++;
     }
 
-    d[i] = 0;
-    return(d);    /* Return the new string */
+    return(newString);    /* Return the new string */
 }
 
 int str_len(char *str)
 {
   int len;
   len = 0;
+  if (str == NULL)
+  {
+    return (0);
+  }
   while (str[len] != '\0')
   {
     len++;
