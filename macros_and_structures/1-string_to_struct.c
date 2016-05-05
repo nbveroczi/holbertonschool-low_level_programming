@@ -27,9 +27,8 @@ Returns the address of this structure
 struct String *string_to_struct(char *str)
 {
   int length;
-  length = str_len(str);
-
   struct String *string;
+  length = str_len(str);
 
   string = malloc(sizeof(struct String));
   if (string == NULL)
