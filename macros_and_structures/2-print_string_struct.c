@@ -2,47 +2,42 @@
 #include <string.h>
 #include "str_struct.h"
 #include <unistd.h>
-#include "countNumDigits.h"
-#include "powerOfTen.h"
-#include "print_number.h"
-#include "print_char.h"
-/* Secure the length of a string */
 
-int str_len(char *str)
-{
-  int len;
-  len = 0;
-  if (str == NULL)
-  {
-    return (0);
-  }
-  while (str[len] != '\0')
-  {
-    len++;
-  }
-
-  return (len);
-}
-
-/* This is a function that prints a char */
+/* This is a function that prints a character */
 
 int print_char(char c)
 {
   return (write(1, &c, 1));
 }
 
-/* This is a function that prints a string. */
+/* Counts number of digits in n */
 
-void print_string(char *str)
+int countNumDigits(int n)
 {
+  int numDigits, remainingDigits;
 
-  int i;
-  i = 0;
+  remainingDigits = n;
 
-  while (str[i] != '\0')
+  for (numDigits = 0; remainingDigits > 0; numDigits++)
     {
-      print_char(str[i++]);
+      remainingDigits = remainingDigits / 10;
     }
+  return numDigits;
+}
+
+/* This function calculates a power of ten given an exponent */
+
+int powerOfTen(int exponent)
+{
+  int result, i;
+
+  result = 1;
+
+  for (i = 0; i < exponent; i++)
+    {
+      result = result * 10;
+    }
+  return result;
 }
 
 /* This function prints a number in decimal format */
@@ -79,13 +74,17 @@ Returns struct String
 void print_string_struct(struct String *str)
 {
 
-  int length;
-  length = str_len(str);
+  int i;
+  i = 0;
 
-  print_string(str->str);
+  while (str->str[i] != '\0')
+  {
+      print_char(str->str[i]);
+      i++;
+  }
+
   print_char(',');
   print_char(' ');
-  print_number(length);
+  print_number(str->length);
   print_char('\n');
-
 }
