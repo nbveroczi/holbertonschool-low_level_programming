@@ -27,7 +27,8 @@ int add_node(List **list, char *content)
     return(1);
   }
 
-node->content =
+node->content = string_copy(str);
+node->next = *list;
 
 
 
