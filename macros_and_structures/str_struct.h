@@ -1,4 +1,4 @@
 struct String {
-  char *str;
+  char *str; /* str->str */
   int length;
 };

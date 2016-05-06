@@ -33,7 +33,14 @@ struct String *string_to_struct(char *str)
   string = malloc(sizeof(struct String));
   if (string == NULL)
     return (NULL);
-  string->str = str;
+
+  string->str = str; 
+
+
+
+
+
+
   string->length = length;
 
   return string;
