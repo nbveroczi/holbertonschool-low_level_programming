@@ -1,9 +1,26 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* This function finds the length of a string */
+int str_len(char *str)
+{
+  int len;
+  len = 0;
+  if (str == NULL)
+  {
+    return (0);
+  }
+  while (str[len] != '\0')
+  {
+    len++;
+  }
+
+  return (len);
+}
+
 typedef struct List {
   char *str;
-  struct List *next
+  struct List *next;
 } List;
 
 /* Add Node
@@ -14,7 +31,10 @@ int add_node(List **list, char *content)
 {
   List *node;
   int i;
+  struct List *next;
+  char *stringCopy;
   i = 0;
+
   /* This is a function that allocates memory the sizeof the List
   that is passed from struct List */
   node = malloc(sizeof(List));
@@ -27,13 +47,26 @@ int add_node(List **list, char *content)
     return(1);
   }
 
+list->length = str_len(str);
 node->content = string_copy(str);
 node->next = *list;
 
+/* This is a function that allocates memory the sizeof the copy (list->length)
+of the string that was passed from struct List */
+stringCopy = malloc(sizeof(list->length));
+if (stringCopy == NULL)
+  return (NULL);
 
-
-
+while (str[i] != '\0')
+{
+  stringCopy[i] = str[i];
+  i++;
 }
+list->str = stringCopy;
+
+return list;
+}
+
 
 /*This is a function that copies a string */
 
