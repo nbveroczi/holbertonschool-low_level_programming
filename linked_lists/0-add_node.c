@@ -7,7 +7,7 @@ char *string_copy(char *src);
 This is a function that allocates a new node and links it to a list
 Returns new node linked to list.  1 if it fails, otherwise 0 */
 
-int add_node(List **list, char *str)
+int add_node(List **list, char *content)
 {
   List *node;
 
@@ -19,7 +19,7 @@ int add_node(List **list, char *str)
     return (1);
   }
   /* make a node with the copy of the string passed as a parameter */
-  node->str = string_copy(str);
+  node->str = string_copy(content);
   /* add the address in list to the begining of the linked list */
   node->next = *list;
   /* This *list is given the value of node becuase it is now the first node */
