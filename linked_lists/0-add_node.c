@@ -1,27 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
-
-/* This function finds the length of a string */
-int str_len(char *str)
-{
-  int len;
-  len = 0;
-  if (str == NULL)
-  {
-    return (0);
-  }
-  while (str[len] != '\0')
-  {
-    len++;
-  }
-
-  return (len);
-}
-
-typedef struct List {
-  char *str;
-  struct List *next;
-} List;
+#include "list.h"
+char *string_copy(char *src);
 
 /* Add Node
 This is a function that allocates a new node and links it to a list
@@ -30,57 +10,53 @@ Returns new node linked to list.  1 if it fails, otherwise 0 */
 int add_node(List **list, char *content)
 {
   List *node;
-  int i;
-  struct List *next;
-  char *stringCopy;
-  i = 0;
 
   /* This is a function that allocates memory the sizeof the List
   that is passed from struct List */
   node = malloc(sizeof(List));
   if (node == NULL)
   {
-    return (0);
+    return (1);
   }
-  else
-  {
-    return(1);
-  }
+  /* make a node with the copy of the string passed as a parameter */
+  node->str = string_copy(src);
+  /* add the address in list to the begining of the linked list */
+  node->next = *list;
+  /* This *list is given the value of node becuase it is now the first node */
+  *list = node;
 
-list->length = str_len(str);
-node->content = string_copy(str);
-node->next = *list;
-
-/* This is a function that allocates memory the sizeof the copy (list->length)
-of the string that was passed from struct List */
-stringCopy = malloc(sizeof(list->length));
-if (stringCopy == NULL)
-  return (NULL);
-
-while (str[i] != '\0')
-{
-  stringCopy[i] = str[i];
-  i++;
-}
-list->str = stringCopy;
-
-return list;
+  return(0);
 }
 
+/*This is a function that copies a string and allocates
+a new address */
 
-/*This is a function that copies a string */
+char *string_copy(char *src)
 
-char *string_copy(char *dest, const char *src)
 {
   int index;
+  char *stringCopy = src;
+  index = 0;
 
-  for (index = 0; src[index] != '\0'; index++)
+    while (src[index] != '\0')
     {
-      dest[index] = src[index];
+      index++;
     }
-  for (; index < src[index]; index++)
+
+src = malloc(sizeof(char) * (index + 1));
+if (src == NULL)
     {
-      dest[index] = '\0';
+      return (0);
     }
-  return dest;
+
+  int dest;
+  dest = 0;
+
+  while (dest < index)
+  {
+    dest++;
+    src[dest] = stringCopy[dest];
+  }
+
+  return (src);
 }
