@@ -35,28 +35,23 @@ char *string_copy(char *src)
 
 {
   int index;
-  char *stringCopy = src;
+  char *dest;
   index = 0;
+
+  dest = malloc(sizeof(char) + 1);
 
     while (src[index] != '\0')
     {
+      if (dest == NULL)
+          {
+            return (NULL);
+          }
+
+      dest[index] = src[index];
       index++;
     }
 
-src = malloc(sizeof(char) * (index + 1));
-if (src == NULL)
-    {
-      return (0);
-    }
+    dest[index] = 0;
 
-  int dest;
-  dest = 0;
-
-  while (dest < index)
-  {
-    dest++;
-    src[dest] = stringCopy[dest];
-  }
-
-  return (src);
+    return (dest);
 }
