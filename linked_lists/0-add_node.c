@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "list.h"
+
 char *string_copy(char *src);
 
 /* Add Node
@@ -11,18 +12,17 @@ int add_node(List **list, char *content)
 {
   List *node;
 
-  /* This is a function that allocates memory the sizeof the List
-  that is passed from struct List */
+  /* This is a function makes a node by allocating memory the sizeof the List */
   node = malloc(sizeof(List));
   if (node == NULL)
   {
     return (1);
   }
-  /* make a node with the copy of the string passed as a parameter */
+  /* make a copy of the string and assign it to the node's string pointer (str) */
   node->str = string_copy(content);
-  /* add the address in list to the begining of the linked list */
+  /* the address of list is assigned to the next node */
   node->next = *list;
-  /* This *list is given the value of node becuase it is now the first node */
+  /* The address of the list is given the value of new node becuase it is now the first node */
   *list = node;
 
   return(0);
