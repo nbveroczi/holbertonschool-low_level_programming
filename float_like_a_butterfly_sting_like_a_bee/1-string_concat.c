@@ -10,7 +10,7 @@ char *string_concat(char *s1, char *s2)
   int index, index2;
   char *concat = NULL;
   for (index = 0; s1[index] != '\0'; index++);
-  for (index2 = 0; s2[index2] != '\0'; index++, index2++);
+  for (index2 = 0; s2[index2] != '\0'; index2++);
   concat = malloc(sizeof(*concat) * index++);
   if (concat == NULL)
   {
