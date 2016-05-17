@@ -2,9 +2,11 @@
 /* This is a function that prints a string. */
 
 void print_string(char *str)
-{
-  int i;
-  i = 0;
-  while (str[i] != '\0')
-    print_char(str[i++]);
-}
+  {
+    int i;
+
+    for (i = 0; str[i] !='\0'; i++)
+      {
+        print_char(str[i]);
+      }
+  }
