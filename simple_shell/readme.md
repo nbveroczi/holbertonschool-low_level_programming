@@ -5,4 +5,4 @@ specified by Holberton School.
 
 ## Contributors
 
-This project was by Naomi Veroczi and Tasneem Farag
+This project was a team project by Naomi Veroczi and Tasneem Farag
